@@ -1,0 +1,186 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\include{defs}
+
+\usepackage{lipsum}
+
+%%%%%%%%%%%%%%
+% Variables
+\newcommand{\fecha}{febrero.jpg}
+\newcommand{\urc}{Unidad de Riesgos y Cumplimiento}
+
+%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%
+% Title Page
+\title{Título}
+\author{Jose Lopez \newline \urc}
+\date{Octubre 2022}
+%%%%%%%%%%%%%%%
+
+
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+\clearpage
+
+\section{Features commands}
+
+\subsection{Pictures used}
+
+Cover picture filename (in titlepage): \texttt{cover}\\
+Logo filename (in foot): \texttt{logo}
+
+\subsection{Boxes}
+
+\begin{verbatim}
+\fullboxbegin
+Content
+\fullboxend
+\end{verbatim}
+
+\begin{verbatim}
+\leftboxbegin
+Content
+\leftboxend
+\end{verbatim}
+
+\begin{verbatim}
+\rightboxbegin
+Content
+\rightboxend
+\end{verbatim}
+
+\begin{verbatim}
+\frameboxbegin{Frame Title}
+Content
+\frameboxend
+\end{verbatim}
+
+\newpage
+
+\section{First section} \label{seccion-1}
+\lipsum[1]
+
+\fullboxbegin
+\lipsum[1]
+\fullboxend
+
+\fullboxbegin
+Tata dasdasdasd asdasdasd
+\fullboxend
+
+\lipsum[1]
+
+\subsection{First subsection}
+\lipsum[1]\\
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna. Donec vehicula augue eu neque.\sidenotebegin {Esta es una side note Esta es una side note Esta es una side note Esta es una side note. Esta es una side note Esta es una side note Esta es una side note Esta es una side note. Esta es una side note Esta es una side note Esta es una side note Esta es una side note}\sidenoteend Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna. Donec vehicula augue eu neque.\\
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna. Donec vehicula augue eu neque.
+
+
+\lipsum[1-2]
+
+\rightboxbegin
+\begin{itemize}
+ \item Lorem ipsum
+ \item Lorem ipsum
+\end{itemize}
+\rightboxend
+
+\lipsum[1]
+
+\subsubsection{First subsubsection}
+
+\begin{itemize}
+ \item uno
+ \item dos
+\end{itemize}
+
+\begin{enumerate}
+  \item The labels consists of sequential numbers.
+  \begin{enumerate}
+    \item uno
+    \item dos
+  \end{enumerate}
+  \item The numbers starts at 1 with every call to the enumerate environment.
+\end{enumerate}
+
+\beginromanlist
+\item First item
+\item Second item 
+\item Third item 
+\endromanlist
+
+asdasdasdasdasdasdasd
+
+\beginalphlist
+\item First item
+    \begin{itemize}
+        \item asdasda
+        \item asdasdasd
+        \item asdasd
+    \end{itemize}
+\item Second item 
+\item Third item 
+\endalphlist
+asdasdasd asdasdasd
+
+\beginenumeratelist
+\item First item
+\item Second item 
+\item Third item 
+\endenumeratelist
+
+\lipsum[1]
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.5\textwidth]{\fecha}
+\caption{The sky is the limit.}
+\label{fig:leaf}
+\end{figure}
+
+\section*{Unnumbered section}
+\lipsum[1]
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.5\textwidth]{\fecha}
+\caption*{The sky is the limit.}
+\end{figure}
+
+\section{Second section}
+
+\lipsum[1]
+asdasdasdasdadas \footnote{Nota de pie}
+
+\lipsum[1]
+\begin{table}[!h]
+    \caption{Table with footnotes}
+  \centering
+  \begin{threeparttable}[b]
+  \input{mytable}
+  \small
+  \begin{tablenotes}
+    \item tablefootnote 1
+    \item tablefootnote 2
+  \end{tablenotes}
+ \end{threeparttable}
+ \label{table:table-example}
+\end{table}
+
+Como se observa en la tabla \ref{table:table-example} la cosa es asi como se menciono en la seccion \ref{seccion-1}, asi tambien se mira en la figura \ref{fig:leaf}
+
+\lipsum[1]\\
+\lipsum[1]
+\frameboxbegin{Sample frame}
+Lo cierto es que es
+\frameboxend
+
+\end{document}          

@@ -1,0 +1,199 @@
+%%novalidate
+
+\usepackage{tikz}
+\usepackage{calc}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{lastpage} % Required to determine the total number of pages
+\usepackage[oneside]{sidenotes} % Required for outputting content to the margin
+\usepackage{marginnote}
+\usepackage{threeparttable}
+\usepackage{marginfix}
+\usepackage[skip=10pt, indent=40pt]{parskip}
+\usepackage{appendix} % Required for the appendices section
+
+
+%----------------------------------------------------------------------------------------
+%	ANEXOS / APENDICES
+%----------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+%	COLORS
+%----------------------------------------------------------------------------------------
+\definecolor{color1}{HTML}{000060}
+\definecolor{head}{HTML}{808080}
+\definecolor{color2}{HTML}{333333}
+
+
+\setlength\parindent{0pt}
+
+%----------------------------------------------------------------------------------------
+%	FONTS
+%----------------------------------------------------------------------------------------
+\usepackage{fontspec}
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont
+[BoldFont=Lato-Bold.ttf,
+ItalicFont=Lato-Italic.ttf,
+BoldItalicFont=Lato-BoldItalic.ttf]
+{Lato-Regular.ttf}
+\newfontfamily\headingfont[ItalicFont=Lato-BlackItalic.ttf]{Lato-Black.ttf}
+%%%
+
+
+%----------------------------------------------------------------------------------------
+%	MARGINS
+%----------------------------------------------------------------------------------------
+\usepackage[headsep=20mm, marginparwidth=2.5cm, marginparsep=0.5cm]{geometry}
+\geometry{letterpaper,lmargin=20mm, rmargin=15mm, head=0ex,footskip=30mm}
+\linespread{1.3}
+
+%----------------------------------------------------------------------------------------
+%	CAPTIONS
+%----------------------------------------------------------------------------------------
+
+\captionsetup{labelfont={bf,color=color2},textfont={normalsize,color=color2}}
+
+%----------------------------------------------------------------------------------------
+%	FANCY SECTIONS
+%----------------------------------------------------------------------------------------
+\usepackage{titlesec}
+%\titleformat{\chapter}{\headingfont\LARGE\bfseries\scshape\color{color1}}{\thechapter}{1em}{}[\titlerule]
+\titleformat{\section}{\color{color1}\headingfont\Large\bfseries\uppercase}{\thesection}{1em}{}[\titlerule]
+\titleformat{\subsection}{\color{color1}\headingfont\large\bfseries\uppercase}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\color{color1}\headingfont\bfseries\uppercase}{\thesubsubsection}{1em}{}
+%%%
+
+%----------------------------------------------------------------------------------------
+%	HEAD AND FOOTS
+%----------------------------------------------------------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+
+\chead{}
+\lhead{}
+\makeatletter
+\rhead{\color{head}\leftmark}
+\makeatother
+\newlength{\myheight}
+\lfoot{
+\settoheight{\myheight}{\thepage}
+\raisebox{-2ex-0.5\myheight}{\includegraphics[height=4ex]{logo}}
+}
+\cfoot{\color{head}Unidad de Riesgos y Cumplimiento}
+\fancyfoot[R]{\thepage~de \pageref{LastPage}}
+\renewcommand\headrulewidth{0pt}
+\renewcommand\footrulewidth{0pt}
+
+
+%----------------------------------------------------------------------------------------
+%	LIST
+%----------------------------------------------------------------------------------------
+\def\beginromanlist{
+\begin{enumerate}[label=\roman*., itemsep=-4pt, topsep=0pt]
+}
+\def\endromanlist{\end{enumerate}}
+
+\def\beginenumeratelist{
+\begin{enumerate}[itemsep=-4pt, topsep=0pt]
+}
+\def\endenumeratelist{\end{enumerate}}
+
+\def\beginalphlist{
+\begin{enumerate}[label=\alph*., itemsep=-4pt, topsep=0pt]
+}
+\def\endalphlist{\end{enumerate}}
+
+%----------------------------------------------------------------------------------------
+%	PICTURE ON COVER PAGE
+%----------------------------------------------------------------------------------------
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight,%
+keepaspectratio]{urc_cover_report}%
+\vfill
+}}}
+%%%
+% custom titlepage
+\makeatletter
+\renewcommand{\maketitle}{
+\thispagestyle{empty}
+\AddToShipoutPicture*{\BackgroundPic}
+\ClearShipoutPicture
+%
+\phantom{a}
+\vfill
+\phantom{a}\hfill
+\begin{tabular}[c]{@{}p{1\textwidth}@{}}
+      \color{color1}\headingfont\Huge{\@title}\\[2.5em]
+      \color{head}\headingfont\Large\@date\\[7em]
+\end{tabular}
+%
+\clearpage
+}
+\makeatother
+%%%
+
+%----------------------------------------------------------------------------------------
+%	NAMES TABLES AND FIGURES
+%----------------------------------------------------------------------------------------
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\contentsname}{Contenido}
+
+
+
+%----------------------------------------------------------------------------------------
+%   SIDENOTES
+%----------------------------------------------------------------------------------------
+% Restyle the \sidenote command from the sidenotes package to reduce the font size
+% Restyle the \sidenote command from the sidenotes package to reduce the font size
+
+%----------------------------------------------------------------------------------------
+%   FANCY BOXES
+%----------------------------------------------------------------------------------------
+\usepackage{tcolorbox}
+\usepackage{wrapfig}
+
+\def\fullboxbegin{
+    \bigskip
+    \begin{tcolorbox}[colback=color1,colframe=color1,coltext=white,arc=0mm,boxrule=0pt]}
+\def\fullboxend{\end{tcolorbox}\medskip}
+
+%
+\def\leftboxbegin{
+    \begin{wrapfigure}{l}{0.5\textwidth}
+    \begin{tcolorbox}[colback=color1,colframe=color1,coltext=white,arc=0mm,boxrule=0pt]}
+\def\leftboxend{
+    \end{tcolorbox}
+    \end{wrapfigure}}
+%
+
+\def\rightboxbegin{
+    \begin{wrapfigure}{r}{0.5\textwidth}
+    \begin{tcolorbox}[colback=color1,colframe=color1,coltext=white,arc=0mm,boxrule=0pt]}
+\def\rightboxend{
+    \end{tcolorbox}
+    \end{wrapfigure}
+}
+%
+
+\newcounter{frames}
+\def\frameboxbegin#1{
+\bigskip
+\refstepcounter{frames}
+\begin{tcolorbox}[colback=white,colframe=color1,arc=0mm,title={\MakeUppercase{\textbf{Frame \arabic{frames}}: #1}}]
+}
+\def\frameboxend{
+\end{tcolorbox}
+}
+
+
+
+%%%
