@@ -24,6 +24,7 @@
 \definecolor{color1}{HTML}{000060}
 \definecolor{head}{HTML}{808080}
 \definecolor{color2}{HTML}{333333}
+\definecolor{white}{HTML}{ffffff}
 
 
 \setlength\parindent{0pt}
@@ -115,8 +116,7 @@ BoldItalicFont=Lato-BoldItalic.ttf]
 \parbox[b][\paperheight]{\paperwidth}{%
 \vfill
 \centering
-\includegraphics[width=\paperwidth,height=\paperheight,%
-keepaspectratio]{urc_cover_report}%
+\includegraphics{cover.pdf}%
 \vfill
 }}}
 %%%
@@ -127,12 +127,13 @@ keepaspectratio]{urc_cover_report}%
 \AddToShipoutPicture*{\BackgroundPic}
 \ClearShipoutPicture
 %
+
 \phantom{a}
 \vfill
 \phantom{a}\hfill
 \begin{tabular}[c]{@{}p{1\textwidth}@{}}
-      \color{color1}\headingfont\Huge{\@title}\\[2.5em]
-      \color{head}\headingfont\Large\@date\\[7em]
+      \color{white}\headingfont\Huge\begin{flushright} {\@title} \end{flushright}\\[2.5em]
+      \color{white}\headingfont\Large\begin{flushright} {\@date} \end{flushright}\\[7em]
 \end{tabular}
 %
 \clearpage
